@@ -1,5 +1,6 @@
 plugins {
     `java-gradle-plugin`
+        id("com.gradle.plugin-publish") version "0.10.0"
         id("org.jetbrains.kotlin.jvm") version "1.3.41"
         id("org.jlleitschuh.gradle.ktlint") version "8.2.0"
 }
@@ -26,6 +27,18 @@ gradlePlugin {
         id = "org.steinko.projectversion"
         implementationClass = "org.steinko.plugin.ProjectVersionPlugin"
     }
+}
+
+group = "org.steinko.plugin"
+version = "0.1"
+
+pluginBundle {
+    website = "https://github.com/steinko/ProjectVersionPlugin/wiki"
+    vcsUrl = "https://github.com/steinko/ProjectVersionPlugin"
+    description = "This plugin add a Projetc version to the project's version property"
+    tags = listOf("project", "version")
+    group = "org.steinko.plugin"
+    version = "0.1"
 }
 
 // Add a source set for the functional test suite
