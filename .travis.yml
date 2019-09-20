@@ -2,4 +2,4 @@ language: java
 script:
   - ./gradlew assemble
   - ./gradlew check
-  - ./gradlew lintKotlin
+  - ./gradlew ktlintCheck
