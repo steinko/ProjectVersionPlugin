@@ -17,13 +17,17 @@ repositories {
     mavenCentral()
 }
 
+val spek2Version = "2.0.7"
 dependencies {
    
     implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8")
     
+    
     implementation ("com.pinterest:ktlint:0.34.2")
-
+    
+    testImplementation ("org.spekframework.spek2:spek-dsl-jvm:$spek2Version")
+    
     testImplementation("org.jetbrains.kotlin:kotlin-test")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit")
 }

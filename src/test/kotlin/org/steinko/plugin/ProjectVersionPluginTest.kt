@@ -2,17 +2,24 @@ package org.steinko.plugin
 
 /* ktlint-disable import-ordering */
 import kotlin.test.assertNotNull
-import kotlin.test.Test
 import org.gradle.testfixtures.ProjectBuilder
+import org.spekframework.spek2.Spek
+import org.spekframework.spek2.style.gherkin.Feature
 /* ktlint-enable import-ordering */
 
-class ProjectVersionPluginTest {
-    @Test fun `plugin registers task`() {
-        // Create a test project and apply the plugin
-        val project = ProjectBuilder.builder().build()
-        project.plugins.apply("org.steinko.projectversion")
+object ProjectVersionPluginTest : Spek({
+    Feature("ProjectVersionPluging Unit Test") {
+        Scenario("should unit test ProjectVersionPlugin") {
 
-        // Verify the result
-        assertNotNull(project.tasks.findByName("greeting"))
+            val project = ProjectBuilder.builder().build()
+
+                When("applying pluggin") {
+                    project.plugins.apply("org.steinko.projectversion")
+                }
+
+                Then("project should contain a greeting tasks") {
+                    assertNotNull(project.tasks.findByName("greeting"))
+                }
+        }
     }
-}
+})
