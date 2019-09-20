@@ -1,7 +1,7 @@
 package org.steinko.plugin
 
 /* ktlint-disable import-ordering */
-import kotlin.test.assertNotNull
+import kotlin.test.assertEquals
 import org.gradle.testfixtures.ProjectBuilder
 import org.spekframework.spek2.Spek
 import org.spekframework.spek2.style.gherkin.Feature
@@ -18,7 +18,8 @@ object ProjectVersionPluginTest : Spek({
                 }
 
                 Then("project should contain a greeting tasks") {
-                    assertNotNull(project.tasks.findByName("greeting"))
+                    val property = project.findProperty("version")
+                    assertEquals(property, "0.1-SNAPSHOT")
                 }
         }
     }

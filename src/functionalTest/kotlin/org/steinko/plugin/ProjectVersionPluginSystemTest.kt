@@ -24,13 +24,13 @@ object ProjectVersionPluginSystemTest : Spek({
                 val runner = GradleRunner.create()
                 runner.forwardOutput()
                 runner.withPluginClasspath()
-                runner.withArguments("greeting")
+                runner.withArguments("properties")
                 runner.withProjectDir(projectDir)
 
                 val result = runner.build()
 
                 Then("should contain Hello from plugin") {
-                    assertTrue(result.output.contains("Hello from plugin 'org.steinko.plugin.greeting'"))
+                    assertTrue(result.output.contains("version: 0.1-SNAPSHOT"))
                     }
             }
         }
