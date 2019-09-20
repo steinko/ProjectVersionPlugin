@@ -25,6 +25,7 @@ gradlePlugin {
 
     val projectversion by plugins.creating {
         id = "org.steinko.projectversion"
+        displayName = "Project Version Plugin"
         implementationClass = "org.steinko.plugin.ProjectVersionPlugin"
     }
 }
